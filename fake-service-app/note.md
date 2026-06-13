@@ -20,6 +20,4 @@ terraform taint aws_instance.account_app
 terraform taint aws_instance.account_app
 terraform taint aws_instance.statement_app
 
-
-
 terraform apply
