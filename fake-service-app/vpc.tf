@@ -16,13 +16,13 @@ resource "aws_subnet" "customer_public_a" {
   tags                    = { Name = "customer-profile-public-subnet-a" }
 }
 
-resource "aws_subnet" "customer_public_b" {
-  vpc_id                  = aws_vpc.customer-profile.id
-  cidr_block              = "10.0.4.0/24"
-  availability_zone       = "ap-southeast-1b"
-  map_public_ip_on_launch = true
-  tags                    = { Name = "customer-profile-public-subnet-b" }
-}
+# resource "aws_subnet" "customer_public_b" {
+#   vpc_id                  = aws_vpc.customer-profile.id
+#   cidr_block              = "10.0.4.0/24"
+#   availability_zone       = "ap-southeast-1b"
+#   map_public_ip_on_launch = true
+#   tags                    = { Name = "customer-profile-public-subnet-b" }
+# }
 
 resource "aws_subnet" "customer_private_a" {
   vpc_id            = aws_vpc.customer-profile.id
@@ -130,10 +130,10 @@ resource "aws_route_table" "customer_public" {
     gateway_id = aws_internet_gateway.customer-profile.id
   }
 
-  route {
-    cidr_block                = var.account_vpc_cidr
-    vpc_peering_connection_id = aws_vpc_peering_connection.customer_account.id
-  }
+  # route {
+  #   cidr_block                = var.account_vpc_cidr
+  #   vpc_peering_connection_id = aws_vpc_peering_connection.customer_account.id
+  # }
 
   tags = { Name = "customer-profile-public-rt" }
 }
@@ -143,10 +143,10 @@ resource "aws_route_table_association" "customer_public_a" {
   route_table_id = aws_route_table.customer_public.id
 }
 
-resource "aws_route_table_association" "customer_public_b" {
-  subnet_id      = aws_subnet.customer_public_b.id
-  route_table_id = aws_route_table.customer_public.id
-}
+# resource "aws_route_table_association" "customer_public_b" {
+#   subnet_id      = aws_subnet.customer_public_b.id
+#   route_table_id = aws_route_table.customer_public.id
+# }
 
 # Customer Profile Private
 resource "aws_route_table" "customer_private" {
