@@ -98,10 +98,10 @@ resource "aws_security_group" "account_ec2" {
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
-    cidr_blocks = ["10.0.0.0/16"]       
+    cidr_blocks = ["10.0.0.0/16"]
   }
 
-  
+
   egress {
     from_port   = 0
     to_port     = 0
@@ -148,12 +148,12 @@ resource "aws_security_group" "statement_ec2" {
     security_groups = [aws_security_group.statement_alb.id]
   }
 
-    ingress {
-      from_port   = 22
-      to_port     = 22
-      protocol    = "tcp"
-      cidr_blocks = ["10.0.0.0/16"]       
-    }
+  ingress {
+    from_port   = 22
+    to_port     = 22
+    protocol    = "tcp"
+    cidr_blocks = ["10.0.0.0/16"]
+  }
 
   egress {
     from_port   = 0

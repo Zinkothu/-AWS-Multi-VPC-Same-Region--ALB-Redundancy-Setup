@@ -28,10 +28,10 @@ resource "aws_instance" "customer_profile_app_a" {
   depends_on = [aws_instance.account_app_a, aws_instance.account_app_b]
 
   user_data = templatefile("./scripts/customer-profile.sh", {
-    listen_addr = "0.0.0.0:${var.customer_profile_port}"
-    message     = "HelloCloud Bank | Retail-Banking | Customer-profile-service"
-    name        = "customer-profile"
-    account_alb_dns  = aws_lb.account.dns_name
+    listen_addr     = "0.0.0.0:${var.customer_profile_port}"
+    message         = "HelloCloud Bank | Retail-Banking | Customer-profile-service"
+    name            = "customer-profile"
+    account_alb_dns = aws_lb.account.dns_name
   })
 
   tags = { Name = "customer-profile-app-a" }
@@ -47,10 +47,10 @@ resource "aws_instance" "customer_profile_app_b" {
   depends_on = [aws_instance.account_app_a, aws_instance.account_app_b]
 
   user_data = templatefile("./scripts/customer-profile.sh", {
-    listen_addr = "0.0.0.0:${var.customer_profile_port}"
-    message     = "HelloCloud Bank | Retail-Banking | Customer-profile-service"
-    name        = "customer-profile"
-    account_alb_dns  = aws_lb.account.dns_name
+    listen_addr     = "0.0.0.0:${var.customer_profile_port}"
+    message         = "HelloCloud Bank | Retail-Banking | Customer-profile-service"
+    name            = "customer-profile"
+    account_alb_dns = aws_lb.account.dns_name
   })
 
   tags = { Name = "customer-profile-app-b" }
@@ -70,9 +70,9 @@ resource "aws_instance" "account_app_a" {
   depends_on = [aws_instance.statement_app_a, aws_instance.statement_app_b]
 
   user_data = templatefile("./scripts/account.sh", {
-    listen_addr  = "0.0.0.0:${var.account_port}"
-    message      = "HelloCloud Bank | Retail-Banking | Account-service"
-    name         = "account"
+    listen_addr       = "0.0.0.0:${var.account_port}"
+    message           = "HelloCloud Bank | Retail-Banking | Account-service"
+    name              = "account"
     statement_alb_dns = aws_lb.statement.dns_name
   })
 
@@ -89,9 +89,9 @@ resource "aws_instance" "account_app_b" {
   depends_on = [aws_instance.statement_app_a, aws_instance.statement_app_b]
 
   user_data = templatefile("./scripts/account.sh", {
-    listen_addr  = "0.0.0.0:${var.account_port}"
-    message      = "HelloCloud Bank | Retail-Banking | Account-service"
-    name         = "account"
+    listen_addr       = "0.0.0.0:${var.account_port}"
+    message           = "HelloCloud Bank | Retail-Banking | Account-service"
+    name              = "account"
     statement_alb_dns = aws_lb.statement.dns_name
   })
 
