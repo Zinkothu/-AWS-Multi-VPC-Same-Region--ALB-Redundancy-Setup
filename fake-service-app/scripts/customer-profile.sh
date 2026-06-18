@@ -18,7 +18,7 @@ After=network.target
 Type=simple
 User=ubuntu
 Environment="LISTEN_ADDR=${listen_addr}"
-Environment="UPSTREAM_URIS=http://${account_alb_dns}"
+Environment="UPSTREAM_URIS=https://account.internal.hellocloudteam4app.click"
 Environment="MESSAGE=${message}"
 Environment="NAME=${name}"
 ExecStart=/usr/local/bin/customer-profile-service

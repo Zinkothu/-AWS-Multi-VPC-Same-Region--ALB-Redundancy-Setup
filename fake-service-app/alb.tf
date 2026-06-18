@@ -38,16 +38,16 @@ resource "aws_lb_target_group" "customer_profile" {
   }
 }
 
-resource "aws_lb_listener" "customer_profile" {
-  load_balancer_arn = aws_lb.customer_profile.arn
-  port              = 80
-  protocol          = "HTTP"
+# resource "aws_lb_listener" "customer_profile" {
+#   load_balancer_arn = aws_lb.customer_profile.arn
+#   port              = 80
+#   protocol          = "HTTP"
 
-  default_action {
-    type             = "forward"
-    target_group_arn = aws_lb_target_group.customer_profile.arn
-  }
-}
+#   default_action {
+#     type             = "forward"
+#     target_group_arn = aws_lb_target_group.customer_profile.arn
+#   }
+# }
 
 resource "aws_lb_target_group_attachment" "customer_profile_a" {
   target_group_arn = aws_lb_target_group.customer_profile.arn
@@ -101,16 +101,16 @@ resource "aws_lb_target_group" "account" {
   }
 }
 
-resource "aws_lb_listener" "account" {
-  load_balancer_arn = aws_lb.account.arn
-  port              = 80
-  protocol          = "HTTP"
+# resource "aws_lb_listener" "account" {
+#   load_balancer_arn = aws_lb.account.arn
+#   port              = 80
+#   protocol          = "HTTP"
 
-  default_action {
-    type             = "forward"
-    target_group_arn = aws_lb_target_group.account.arn
-  }
-}
+#   default_action {
+#     type             = "forward"
+#     target_group_arn = aws_lb_target_group.account.arn
+#   }
+# }
 
 resource "aws_lb_target_group_attachment" "account_a" {
   target_group_arn = aws_lb_target_group.account.arn
@@ -164,16 +164,16 @@ resource "aws_lb_target_group" "statement" {
   }
 }
 
-resource "aws_lb_listener" "statement" {
-  load_balancer_arn = aws_lb.statement.arn
-  port              = 80
-  protocol          = "HTTP"
+# resource "aws_lb_listener" "statement" {
+#   load_balancer_arn = aws_lb.statement.arn
+#   port              = 80
+#   protocol          = "HTTP"
 
-  default_action {
-    type             = "forward"
-    target_group_arn = aws_lb_target_group.statement.arn
-  }
-}
+#   default_action {
+#     type             = "forward"
+#     target_group_arn = aws_lb_target_group.statement.arn
+#   }
+# }
 
 resource "aws_lb_target_group_attachment" "statement_a" {
   target_group_arn = aws_lb_target_group.statement.arn
